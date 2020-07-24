@@ -1,0 +1,26 @@
+p {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#count {
+    font-size: 50pt;
+    margin: 50px 0 40px 0;
+    z-index: 100;
+}
+
+#graph {
+    margin-top: -80px;
+    z-index: -100;
+}
+
+#graph-wrap {
+    overflow: hidden;
+    height: 700px;
+}
+
+#updated {
+    margin: auto;
+    font-style: italic;
+    font-size: 8pt;
+}

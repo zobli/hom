@@ -10,7 +10,7 @@ p {
 }
 
 #graph {
-    margin-top: -80px;
+    margin-top: -75px;
     z-index: -100;
     width: 100%;
     max-width: 1400px;
@@ -19,6 +19,18 @@ p {
 #graph-wrap {
     overflow: hidden;
     height: 75vh;
+}
+
+@media screen and (orientation: portrait) {
+    #graph-wrap {
+        margin-top: 10%;
+        overflow: visible;
+        height: 35vh;
+    }
+
+    #graph {
+        margin-top: 0px;
+    }
 }
 
 #updated {

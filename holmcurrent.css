@@ -12,11 +12,13 @@ p {
 #graph {
     margin-top: -80px;
     z-index: -100;
+    width: 100%;
+    max-width: 1400px;
 }
 
 #graph-wrap {
     overflow: hidden;
-    height: 700px;
+    height: 75vh;
 }
 
 #updated {

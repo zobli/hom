@@ -20,7 +20,8 @@ def open_file(d):
 
 def get_data():
     
-    r = requests.get('https://memberjourneyhub.com/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
+    # r = requests.get('https://memberjourneyhub.com/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
+    r = requests.get('https://at.memberjourneyhub.eu/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
     
     return r
     

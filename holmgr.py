@@ -50,6 +50,7 @@ while flagg == True:
                 html_code = '<!DOCTYPE html>'
                 html_code += '<html>'
                 html_code += '<head>'
+                #html_code += '<meta http-equiv="refresh" content="15">'
                 html_code += '<meta http-equiv="refresh" content="30">'
                 html_code += '<link rel=\'stylesheet\' href=\'holmcurrent.css\'>'
                 html_code += '</head>'

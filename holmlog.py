@@ -115,7 +115,8 @@ while flag == True:
     
     # Main
     
-    if (minn != prevtime) & (minn in times) & (try_again == False) & (slow == False):        
+    #if (minn != prevtime) & (try_again == False) & (slow == False):
+    if (minn != prevtime) & (minn in times) & (try_again == False) & (slow == False):  
         
         holmdata = open_file(now)
         data = get_data()

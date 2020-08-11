@@ -27,14 +27,15 @@ while flagg == True:
             
         curr_last_index = len(hp)
         
-        print('index: got', curr_last_index, 'from file,', last_index, 'stored')
+        # print('index: got', curr_last_index, 'from file,', last_index, 'stored')
         
         if curr_last_index == 0:
             print('No data')
         
         else:
             if curr_last_index == last_index:
-                print('No update')
+                # print('No update')
+                pass
 
             else:
                 hdf = pd.DataFrame(hp)

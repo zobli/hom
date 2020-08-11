@@ -20,9 +20,14 @@ def open_file(d):
 
 def get_data():
     
-    # r = requests.get('https://memberjourneyhub.com/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
-    r = requests.get('https://at.memberjourneyhub.eu/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
+    try:
+        # r = requests.get('https://memberjourneyhub.com/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
+        r = requests.get('https://at.memberjourneyhub.eu/holmesplace/api/admin/capacity/check?clubExternalIds[]=8,6,19,11&regionId=5')
     
+    except requests.exceptions.ConnectionError:
+        print('Connection Error')
+        r = ''
+
     return r
     
 
@@ -36,7 +41,7 @@ while flag == True:
     now = datetime.now()
     minn = now.strftime('%M')
     hrr = int(now.strftime('%H'))
-    print('\ntick:', now.strftime('%H:%M:%S'), 'prevtime', prevtime, 'minn', minn, 'slow', slow, 'retry', try_again)
+    # print('\ntick:', now.strftime('%H:%M:%S'), 'prevtime', prevtime, 'minn', minn, 'slow', slow, 'retry', try_again)
     
     # Retry
     
@@ -71,7 +76,9 @@ while flag == True:
     
     # Init
     
-    if prevtime == '':
+    if (prevtime == '') & (try_again == False): #used to double trigger when error occurred on first run
+
+        print('First try')
 
         holmdata = open_file(now)
         data = get_data()
@@ -137,19 +144,19 @@ while flag == True:
     
     if (hrr > 21) | (hrr < 6):
         slow = True
-        print('Club is closed - update interval will be slow')
+        # print('Club is closed - update interval will be slow')
     else:
         slow = False
-        print('Club is open')
+        # print('Club is open')
         
     if (try_again == False) & (slow == True):
         update_interval = 1800
-        print('Slow now - waiting 30 minutes')
+        # print('Slow now - waiting 30 minutes')
     if try_again == True:
         update_interval = 10
         print('Need to try again - waiting 10 seconds')
     if (slow == False) & (try_again == False):
         update_interval = 20
-        print('Normal - waiting 20 seconds')
+        # print('Normal - waiting 20 seconds')
     
     time.sleep(update_interval)
